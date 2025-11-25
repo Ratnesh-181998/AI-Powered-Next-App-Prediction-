@@ -1,0 +1,28 @@
+{
+  "user_id": "hashed_user_abc123",
+  "timestamp": "2024-11-25T14:30:00Z",
+  "context": {
+    "hour": 14,
+    "day_of_week": 1,
+    "is_weekend": false,
+    "battery_level": 75,
+    "is_charging": false,
+    "network_type": "WiFi",
+    "session_duration": 5,
+    "total_opens_24h": 50
+  },
+  "recent_apps": [
+    {
+      "app": "Calendar",
+      "timestamp": "2024-11-25T14:25:00Z"
+    },
+    {
+      "app": "Gmail",
+      "timestamp": "2024-11-25T14:20:00Z"
+    },
+    {
+      "app": "Slack",
+      "timestamp": "2024-11-25T14:10:00Z"
+    }
+  ]
+}
