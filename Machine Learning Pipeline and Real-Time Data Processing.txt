@@ -1,0 +1,77 @@
+Comprehensive Revision Notes: Machine Learning Pipeline and Real-Time Data Processing
+Introduction to Real-Time Data Processing
+In the realm of machine learning, storage and processing of real-time data are critical components. Two primary types of data storage are real-time and batch processing:
+
+Real-Time Data Storage:
+
+Real-time data ingestion is often conducted using tools like Kafka or Amazon Kinesis Data Streams. These tools allow for the ingestion of data such that it can have a retention period, like 24 hours, for processing before being stored in a repository like S3 for further use【6:12†source】.
+Batch Data Storage:
+
+Batch processing involves storing processed historical data. Tools like AWS Glue can be used for data cataloging, maintaining the schema changes or partition additions【6:14†source】.
+Batch features in machine learning usage can be stored back to S3. For the management of real-time data, databases like DynamoDB are suitable as they support key-value documents, optimal for real-time interaction data【6:0†source】.
+
+Machine Learning Pipeline Development
+Developing a machine learning pipeline involves several crucial steps:
+
+Data Versioning:
+
+Tracking data versions is essential as your datasets evolve over time. Utilizing strategies like S3 object versioning ensures that data sets used for models are traceable【6:11†source】.
+Model Training:
+
+Model training takes place on platforms like Amazon SageMaker, which is preferred over local Jupyter or Colab notebooks for industrial-scale projects. SageMaker supports the employment of various machine configurations such as ml.C5.large, ml.C5.xlarge, etc.【6:11†source】.
+Hyperparameter Tuning:
+
+Hyperparameter tuning is often conducted alongside training to optimize model performance【6:16†source】.
+Model Validation and Registry:
+
+Post-training, models are validated. A time series split is often used to evaluate model performance over a set period (e.g., 30 days) to check for stability in predictions【6:18†source】.
+The versioning of models is managed through tools like the SageMaker Model Registry【6:18†source】.
+Model Deployment:
+
+Deployment might employ SageMaker pipelines or AWS Step Functions for orchestrating the deployment flow【6:18†source】.
+Feature Engineering and Processing
+Functional Requirements (Real-Time Prediction System)
+Real-time Prediction:
+
+The system should predict the app a user will likely open next within milliseconds after phone unlock, aiming for high accuracy【6:15†source】【6:5†source】.
+Personalized Recommendations:
+
+Recommendations should adapt to user behavior patterns such as different app usage preferences based on the time of day【6:5†source】.
+Offline Availability:
+
+The system should maintain prediction accuracy even in offline scenarios through techniques like on-device caching【6:5†source】.
+Privacy Concerns:
+
+User data must be anonymized, and identifiers like GPS coordinates and user IDs should be hashed before processing【6:5†source】.
+Non-Functional Requirements
+Latency:
+
+Predictions should be delivered with minimal delay, typically under 100 milliseconds【6:15†source】.
+Scalability:
+
+The system should handle large volumes of data requests efficiently【6:3†source】.
+Availability:
+
+Services used should have high availability, around 99.9%, to ensure consistent uptime and service quality【6:5†source】.
+Security:
+
+Strong encryption measures should be in place for data security【6:5†source】.
+Feature Engineering
+Real-Time Features:
+
+Time since last app usage and interaction flows between apps can be key real-time features【6:10†source】【6:13†source】.
+Contextual and Historical Features:
+
+Contextual signals like the time of day, location (at a city level), battery status, and network type are vital in feature engineering【6:7†source】.
+Historical patterns, such as the most used apps over the last day or week, are crucial for understanding user behavior【6:12†source】.
+Model Selection
+For capturing complex sequential patterns, traditional models might struggle. Here's what was discussed:
+
+XGBoost and LightGBM:
+
+These models are great for structured data but may struggle with sequential data【6:17†source】.
+Transformers:
+
+Ideal for understanding sequences like app usage over time, though computational intensity and latency remain concerns【6:17†source】.
+Conclusion
+Successfully managing and deploying machine learning models requires careful planning and execution of both real-time processing and batch processing pipelines. Ensuring that each component, from data ingestion to model deployment, is optimized for performance, security, and scalability is crucial for building systems like real-time app suggestions.
