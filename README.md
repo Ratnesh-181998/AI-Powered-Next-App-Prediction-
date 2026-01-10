@@ -154,10 +154,6 @@ See `deployment/` directory for:
 
 MIT License
 
-## Contact Linkedin: https://www.linkedin.com/in/ratneshkumar1998/ | GitHub -https://github.com/Ratnesh-181998
-
-For questions or issues, please open an issue on GitHub.
-
 
 ---
 
